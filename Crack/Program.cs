@@ -22,7 +22,11 @@ namespace Crack
         /// </summary>
         static bool HasUniqueCharacters(string s)
         {
+            if (s == null)
+                return true;
+
             var count = new Dictionary<char, bool>();
+
             foreach(char c in s) {
                 if (count.ContainsKey(c))
                     return false;
@@ -33,24 +37,29 @@ namespace Crack
         }
 
         /// <summary>
-        /// Chapter 1, 1.2. Reverses 
+        /// Chapter 1, 1.2. Reverses a "C-style string", i.e. character array 
+        /// with  null character at the end.
         /// </summary>
-        static char[] Reverse(char[] s)
+        static T[] Reverse<T>(T[] ts)
         {
-            var l = s.Length;
-            char holder;
+            if (ts == null)
+                return null;
+
+            var l = ts.Length;
+            T holder;
 
             // String only needs to be reversed if more than one non-null char.
             if (l > 2)
             {
                 for (var i = 0; i < l/2; i++)
                 {
-                    holder = s[i];
-                    s[i] = s[l - 1 - i];
-                    s[l - 1 - i] = holder;
+                    holder = ts[i];
+                    ts[i] = ts[l - 2 - i];
+                    ts[l - 2 - i] = holder;
                 }
             }
-            return s;
+            return ts;
         }
+
     }
 }
