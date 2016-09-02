@@ -49,14 +49,23 @@ def remove_duplicates(root):
 def to_last(root, n):
     i = 1
     node = root
+    while i < n:
+        node = node.next
+        if node == None:
+            return None # Error, the list is too short.
+        i += 1
     result = root
     while node.next != None:
-        if i < n:
-            i += 1
-        else:
-            result = result.next
+        result = result.next
         node = node.next
-    if i < n:
-        return None
-    else:
-        return result.value
+    return result.value
+
+
+# Problem 2.3. 
+# Deletes a node in the middle of a linked list. 
+def delete(node):
+    if node.next != None:
+        node.value = node.next.value
+        node.next = node.next.next
+    else: # Degenerate case: node is end of the list.
+        pass
