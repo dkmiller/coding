@@ -69,3 +69,23 @@ def delete(node):
         node.next = node.next.next
     else: # Degenerate case: node is end of the list.
         pass
+
+# Problem 2.4.
+# Adds two base-ten numbers stored as linked lists.
+def add_linked(root1, root2):
+    remainder = (root1.value + root2.value) / 10
+    root = Node((root1.value + root2.value) % 10)
+    node = root
+    n1, n2 = root1.next, root2.next
+    while n1 != None or n2 != None:
+        v1 = 0 if n1 == None else n1.value
+        v2 = 0 if n2 == None else n2.value
+        remainder = (v1 + v2 + remainder) / 10
+        value = (v1 + v2 + remainder) % 10
+        node.next = Node(value)
+        node = node.next
+        n1 = n1.next if n1 != None else None
+        n2 = n2.next if n2 != None else None
+    if remainder > 0:
+        node.next = Node(remainder)
+    return root
