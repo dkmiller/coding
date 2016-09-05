@@ -1,5 +1,7 @@
-# Chapter 2
+# Chapter 2 of Cracking the Coding Interview
+# Linked lists.
 
+# Self-contained implementation of linked list.
 class Node:
     def __init__(self, value=None):
         self.value = value
