@@ -91,3 +91,16 @@ def add_linked(root1, root2):
     if remainder > 0:
         node.next = Node(remainder)
     return root
+
+# Problem 2.5.
+# Finds the beginning of a loop in a circular linked list.
+def find_loop(root):
+	node = root
+	# Forever (because of the loop).
+	while node.next != None:
+		n = root
+		while n != node:
+			if node.next == n:
+				return n
+			n = n.next
+		node = node.next
