@@ -15,10 +15,9 @@ def reverse(arr):
     if arr == None:
         return None
     l = 0 # Number of non-null elements.
-    while arr[i] != None:
+    while arr[l] != None:
         l += 1
-    if l > 1: # Only reverse if more than one entry.
-    for i in range((l-1)/2):
+    for i in range(l/2):
         temp = arr[i]
         arr[i] = arr[l-1-i]
         arr[l-1-i] = temp
