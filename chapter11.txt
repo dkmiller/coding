@@ -1,0 +1,4 @@
+11.1
+There are two mistakes. First, since i is initialized to be 100, it will never 
+be <=0, so the for-loop will not be entered. Second, since i is unsigned, if 
+the condition were i>=0, the for-loop would run forever. 
