@@ -31,22 +31,21 @@ s = "aabbbcccbba", M = 2
 then the result is "bbbcccbb"
 """
 def longest_substring(s, M):
-    d = {} # Stores last occurance of characters in s[i]..s[j].
+    d = {} # Last occurance of characters in s[i]..s[j].
     i = 0 # Starting index of test substring.
-    start, end = -1, -1 # Candidate return indices.
-    d[s[0]] = 0
+    start, end = -1, -1 # Candidate return indices for start and end of string.
     for j, c in enumerate(s): # s[j] = c
         d[c] = j
         # We've found a new longest substring.
-        if len(d)  == M and (j-i) > (end-start):
+        if len(d) == M and j-i > end-start:
             start, end = i, j
         # Remove all occurances of first character from test substring. 
         if len(d) > M:
             c = s[i]
             i = d[c] + 1
             del d[c]
-    if start == -1:
-        raise ValueError("Fewer than " + M + " characters.")
+    if start < 0:
+        raise ValueError("Fewer than %d characters." % M)
     else:
         return s[start : end+1] # Returns s[start]..s[end].
 
