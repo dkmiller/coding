@@ -20,14 +20,19 @@ void print_binary(char *string)
     if(string == NULL)
         return;
 
-    char sign = 1;
+    char sign = '';
     if(string[0] == '-') // Result is negative.
-        sign = -1;
+    {
+        sign = '-';
+        print(sign);
+    }
 
+    // Start at 1 unless
+    int i = (sign == '-')? 1: 0;
     // Loop through the characters.
-    for(int i=0; string[i] != NULL; i++)
+    for(int i=1; string[i] != NULL; i++)
     {
 
     }
-
+    print(sign)
 }

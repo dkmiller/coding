@@ -18,10 +18,34 @@ def print_spiral(arr):
         (x, y) = position
         (a, b) = directions[current]
         e = edge[current]
-        print arr[x][y]
+        print(arr[x][y])
         if x*a == e*a and y*b == e*b: # Have reached an edge.
             edge[current-1] -= 1
             current = (current + 1) % 4
             (a, b) = directions[current]
         # Increment position by the current direction. 
         position = (x+a,y+b)
+
+"""Finds the longest substring with exactly M characters. For example, if 
+s = "aabbbcccbba", M = 2
+then the result is "bbbcccbb"
+"""
+def longest_substring(s, M):
+    d = {} # Stores last occurance of characters in s[i]..s[j].
+    i = 0 # Starting index of test substring.
+    start, end = -1, -1 # Candidate return indices.
+    d[s[0]] = 0
+    for j, c in enumerate(s): # s[j] = c
+        d[c] = j
+        # We've found a new longest substring.
+        if len(d)  == M and (j-i) > (end-start):
+            start, end = i, j
+        # Remove all occurances of first character from test substring. 
+        if len(d) > M:
+            c = s[i]
+            i = d[c] + 1
+            del d[c]
+    if start == -1:
+        raise ValueError("Fewer than " + M + " characters.")
+    else:
+        return s[start : end+1] # Returns s[start]..s[end].
