@@ -49,3 +49,8 @@ def longest_substring(s, M):
         raise ValueError("Fewer than " + M + " characters.")
     else:
         return s[start : end+1] # Returns s[start]..s[end].
+
+"""Finds the longest common subsequence of two arrays.
+"""
+def longest_common_subsequence(xs, ys):
+    pass
