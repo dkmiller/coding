@@ -1,5 +1,5 @@
-"""Prints the entries in the array in a clockwise spiral, starting at the 
-entry [0][0] and moving inward. For example, if 
+"""Prints the entries in the array in a clockwise spiral, starting at the
+entry [0][0] and moving inward. For example, if
 arr = [[1,2,3],
        [4,5,6],
        [7,8,9]]
@@ -23,12 +23,13 @@ def print_spiral(arr):
             edge[current-1] -= 1
             current = (current + 1) % 4
             (a, b) = directions[current]
-        # Increment position by the current direction. 
+        # Increment position by the current direction.
         position = (x+a,y+b)
 
-"""Finds the longest substring with exactly M characters. For example, if 
+"""Finds the longest substring with exactly M characters. For example, if
 s = "aabbbcccbba", M = 2
-then the result is "bbbcccbb"
+then the result is "bbbcccbb".
+Complexity: time = O(len(s)), space = O(M)
 """
 def longest_substring(s, M):
     d = {} # Last occurance of characters in s[i]..s[j].
@@ -39,7 +40,7 @@ def longest_substring(s, M):
         # We've found a new longest substring.
         if len(d) == M and j-i > end-start:
             start, end = i, j
-        # Remove all occurances of first character from test substring. 
+        # Remove all occurances of first character from test substring.
         if len(d) > M:
             c = s[i]
             i = d[c] + 1
@@ -53,3 +54,22 @@ def longest_substring(s, M):
 """
 def longest_common_subsequence(xs, ys):
     pass
+
+"""Finds the longest palindrome in a string.
+"""
+def longest_palindrome(s):
+    # Center of the current palindrome. A "position" is either a character, the
+    # space between two characters, or the left / right edge. So if s has length
+    # n, there are 2*n+1 positions. Odd positions correspond to edges or spaces
+    # between characters, even positions to characters themselves.
+    center = 0 # Center of current palindrome.  
+    # Lengths of longest palinromes. lengths[p] stores the length (in number of
+    #positions) of the longest palindrome at position p.
+    lengths = []
+    while center < 2*len(s)+1:
+        left = center-1
+        right = center+1
+        while left % 2 != 0 or
+
+        # Find largest palindrome centered at center.
+        pass
