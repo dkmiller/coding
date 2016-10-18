@@ -62,7 +62,7 @@ def longest_palindrome(s):
     # space between two characters, or the left / right edge. So if s has length
     # n, there are 2*n+1 positions. Odd positions correspond to edges or spaces
     # between characters, even positions to characters themselves.
-    center = 0 # Center of current palindrome.  
+    center = 0 # Center of current palindrome.
     # Lengths of longest palinromes. lengths[p] stores the length (in number of
     #positions) of the longest palindrome at position p.
     lengths = []
@@ -73,3 +73,30 @@ def longest_palindrome(s):
 
         # Find largest palindrome centered at center.
         pass
+
+""" Determines whether an array of relative indices is a
+complete cycle. That is, if arr[i] == n, then arr[i]
+points to arr[i+n], possibly modulo the length of the array.
+A complete cycle is an array of relative indices such that
+following the path hits all indices in a cycle. For example,
+[1,1,1,1] is a complete cycle, but [1,-1,1,-1] is not.
+
+This function returns True on empty arrays and False on null
+arrays.
+"""
+def is_complete_cycle(arr):
+    if arr is None:
+        return False
+    # Dictionary of indices that have been visited.
+    visited = {}
+    length = len(arr)
+    # Next index to visit.
+    next = 0
+    # Walk through path given by relative indices.
+    while next not in visited:
+        visited[next] = True
+        # Index pointed to by arr[next].
+        next = (next + arr[next]) % length
+    # Only a complete cycle if we’ve visited everything and are
+    # pointing back at 0.
+    return len(visited) == length and next == 0
