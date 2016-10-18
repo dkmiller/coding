@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 # Chapter 1
 
 # 1.1. Returns true if and only if the string has unique characters
@@ -23,6 +25,14 @@ def reverse(arr):
         arr[l-1-i] = temp
     return arr
 
-# 1.3. Removes duplicate characters in a string without using any buffer. 
-def remove_duplicates(arr):
-    pass
+# 1.4. Decides if two strings are anagrams or not.
+def are_anagrams(s1, s2):
+    char_count = defaultdict(int)
+    for c in s1:
+        char_count[c] += 1
+    for c in s2:
+        char_count[c] -= 1
+    for c in char_count:
+        if char_count[c] != 0:
+            return False
+    return True
