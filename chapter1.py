@@ -22,3 +22,7 @@ def reverse(arr):
         arr[i] = arr[l-1-i]
         arr[l-1-i] = temp
     return arr
+
+# 1.3. Removes duplicate characters in a string without using any buffer. 
+def remove_duplicates(arr):
+    pass
