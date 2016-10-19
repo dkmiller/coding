@@ -36,3 +36,15 @@ def are_anagrams(s1, s2):
         if char_count[c] != 0:
             return False
     return True
+
+# 1.6. Rotates an NxN matrix in place.
+def rotate(mat):
+    N = len(mat)
+    for i in xrange(N/2):
+        for j in xrange(N-2*i-1):
+            temp = mat[i][i+j]
+            mat[i][i+j] = mat[N-1-i-j][i]
+            mat[N-1-i-j][i] = mat[N-1-i][N-1-i-j]
+            mat[N-1-i][N-1-i-j] = mat[i+j][N-1-i]
+            mat[i+j][N-1-i] = temp
+    return mat
