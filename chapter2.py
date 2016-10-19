@@ -46,8 +46,8 @@ def remove_duplicates(root):
             repeats[n.next.value] = 1
             n = n.next
 
-# Problem 2.2. 
-# Returns the n-th to last value in a linked list. 
+# Problem 2.2.
+# Returns the n-th to last value in a linked list.
 def to_last(root, n):
     i = 1
     node = root
@@ -63,8 +63,8 @@ def to_last(root, n):
     return result.value
 
 
-# Problem 2.3. 
-# Deletes a node in the middle of a linked list. 
+# Problem 2.3.
+# Deletes a node in the middle of a linked list.
 def delete(node):
     if node.next != None:
         node.value = node.next.value
@@ -93,14 +93,22 @@ def add_linked(root1, root2):
     return root
 
 # Problem 2.5.
-# Finds the beginning of a loop in a circular linked list.
+# Finds the beginning of a loop in a circular linked list by
+# implementing Floyd's cycle-finding algorithm.
 def find_loop(root):
-	node = root
-	# Forever (because of the loop).
-	while node.next != None:
-		n = root
-		while n != node:
-			if node.next == n:
-				return n
-			n = n.next
-		node = node.next
+    if root is None:
+        return None
+	fast = root
+    slow = root
+    while fast != slow:
+        if slow is None:
+            return None
+        slow = slow.next
+        if slow is None:
+            return None
+        fast = fast.next.next
+    slow = root
+    while fast != slow:
+        slow = slow.next
+        fast = fast.next
+    return slow
