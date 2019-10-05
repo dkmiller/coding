@@ -5,7 +5,7 @@ namespace Cracking.Chapter1
     /// <summary>
     /// Write a method to decide if two strings are anagrams or not.
     /// </summary>
-    interface IProblem4
+    public interface IProblem4
     {
         bool AreAnagrams<T>(IList<T> left, IList<T> right);
 
