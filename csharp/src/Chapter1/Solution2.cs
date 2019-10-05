@@ -1,12 +1,24 @@
-﻿using System;
-
-namespace Cracking.Chapter1
+﻿namespace Cracking.Chapter1
 {
     class Solution2 : IProblem2
     {
-        public T?[] Reverse<T>(T?[] ts) where T : struct
+        public void Reverse<T>(T?[] ts) where T : struct
         {
-            throw new NotImplementedException();
+            var length = 0;
+            while (ts[length] != null)
+            {
+                length++;
+            }
+
+            for (var i = 0; i < length / 2; ++i)
+            {
+                Swap(ref ts[i], ref ts[length - i - 1]);
+            }
+        }
+
+        private void Swap<T>(ref T left, ref T right)
+        {
+            (left, right) = (right, left);
         }
     }
 }

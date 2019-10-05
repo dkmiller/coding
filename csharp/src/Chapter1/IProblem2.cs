@@ -6,6 +6,6 @@
     /// </summary>
     public interface IProblem2
     {
-        T?[] Reverse<T>(T?[] ts) where T : struct;
+        void Reverse<T>(T?[] ts) where T : struct;
     }
 }
