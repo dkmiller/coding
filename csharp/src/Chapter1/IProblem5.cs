@@ -3,9 +3,9 @@
     /// <summary>
     /// Write a method to replace all spaces in a string with '%20'.
     /// </summary>
-    interface IProblem5
+    public interface IProblem5
     {
-        T[] Replace<T>(T[] ts, T source, T[] target);
+        T[] Replace<T>(T[] ts, T source, T[] target) where T : notnull;
 
         string Replace(string s) =>
             new string(
