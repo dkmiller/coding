@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 
 
-from solution import (
+from solution_1 import (
     product_of_entries_which_sum_to,
     product_of_three_entries_which_sum_to,
 )
