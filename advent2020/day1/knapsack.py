@@ -1,3 +1,10 @@
+"""
+Functions for finding "elements in an array which sum up to some number".
+
+These are variants of the Knapsack Problem, see:
+https://stackoverflow.com/a/3421173 .
+"""
+
 from typing import Iterable
 
 

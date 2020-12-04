@@ -1,3 +1,8 @@
+"""
+Utilities around "fake" password validation.
+"""
+
+
 import pandas as pd
 
 

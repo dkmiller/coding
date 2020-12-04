@@ -1,14 +1,13 @@
-import pytest
-from solution_2 import valid_password_count, new_valid_password_count
-import os
-from pathlib import Path
 import pandas as pd
 
 
+from advent2020.common import input_path
+from advent2020.day2.validation import valid_password_count, new_valid_password_count
+
+
 def test_valid_password():
-    input_path = Path(__file__).parent / "input.txt"
     df = pd.read_csv(
-        input_path,
+        input_path(__file__),
         delim_whitespace=True,
         header=None,
         names=["instances", "letter", "password"],
@@ -18,9 +17,8 @@ def test_valid_password():
 
 
 def test_new_valid_password():
-    input_path = Path(__file__).parent / "input.txt"
     df = pd.read_csv(
-        input_path,
+        input_path(__file__),
         delim_whitespace=True,
         header=None,
         names=["instances", "letter", "password"],
