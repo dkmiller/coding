@@ -22,5 +22,4 @@ docker run -e RUN_LOCAL=true -e VALIDATE_MARKDOWN=true -e VALIDATE_YAML=true -v 
 
 ## To-do
 
-- [ ] Enforce typed parameters for solutions.
 - [ ] Display code coverage on pull request.
