@@ -11,7 +11,7 @@ def test_number_of_increases(file, expected):
     assert rv == expected
 
 
-@mark.parametrize("file,expected", [("report1.txt", 5), ("input.txt", 1709)])
+@mark.parametrize("file,expected", [("report1.txt", 5), ("input.txt", 1761)])
 def test_number_of_increases_window(file, expected):
     file_text = file_near(number_of_increases, file).read_text()
     depths = [int(l) for l in file_text.splitlines()]
