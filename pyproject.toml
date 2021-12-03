@@ -4,6 +4,7 @@ line-length = 100
 exclude = '''
 ^/(
   (
+    | advent_of_code/advent2020
     | crack-coding-interview
   )/
   | random.py

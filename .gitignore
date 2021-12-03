@@ -1,6 +1,10 @@
 # Directories
+__pycache__/
+.pytest_cache/
 .vscode/
 
 # Files
+*.log
+.vscode/
 *.gz
 *.pyc
