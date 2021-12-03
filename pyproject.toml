@@ -1,0 +1,11 @@
+[tool.black]
+line-length = 100
+# https://github.com/psf/black/issues/1473#issuecomment-740008873
+exclude = '''
+^/(
+  (
+    | crack-coding-interview
+  )/
+  | random.py
+)
+'''
