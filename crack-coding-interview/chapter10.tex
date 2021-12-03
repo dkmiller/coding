@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+
+\title{Solutions to Chapter 10 of \emph{Cracking the Coding Interview}}
+\author{Daniel Miller}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+
+
+
+\section*{10.1}
+
+Let $p$ be the probability of making a shot. The probability of making $2$ out 
+of $3$ shots is $3p^2(1-p)+p^3 = -2p^3 + 3p^2$. We want to know when 
+$-2p^3+3p^2>p$, or equivalently, $-2p^2+3p>1$. This simplifies to 
+$(p-3/4)^2<1/16$, or equivalently, $|p-3/4|<1/4$. So we have a unique reason to 
+play the second game whenever $p\in (1/2,1)$. When $p\in \{0,1/2,1\}$, the 
+probability of winning is the same for both games. 
+
+
+
+
+
+\section*{10.2}
+
+We assume that the triangle is equilateral, and that the ants all walk at the 
+same constant speed. Two ants will collide if and only if they start walking 
+opposite directions around the triangle. So the probability we are looking 
+for is $6/8 = 3/4$. 
+
+If the ants are walking on a regular $n$-gon, then there are $2^n$ possible 
+configurations of ``walking directions,'' only $2$ of which (all ants walking 
+counterclockwise and all ants walking clockwise) result in no collisions. So 
+the probability of collision in this case is $(2^n-2)/2^n = 1-2^{n-1}$. 
+
+
+
+
+
+\section*{10.3}
+
+Let $l_i$ be the line $a_i x + b_i y = c_i$, $i\in \{1,2\}$. Since the $l_i$ 
+are lines, some coefficient is $\ne 0$. Divide the equations for both lines 
+through by that nonzero coefficient. If the resulting equations are identical, 
+clearly there is an intersection. Otherwise, they intersect if and only if they 
+have distinct slopes. 
+
+
+
+
+
+\section*{10.5}
+
+The line through the centers of the squares. 
+
+
+
+
+
+\end{document}
