@@ -24,7 +24,7 @@ from typing import List, Optional, get_type_hints
 from types import FunctionType, ModuleType
 
 
-import advent2020
+from advent_of_code import advent2020
 
 
 class TypeHintError(Exception):
