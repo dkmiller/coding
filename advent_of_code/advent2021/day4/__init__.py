@@ -54,11 +54,14 @@ class Board:
         return Board(rows)
 
 
-def winning_score(numbers: Iterable[int], boards: List[Board]) -> int:
+def winning_score(numbers: Iterable[int], boards: List[Board], index=0) -> int:
+    won = set()
+    scores = []
     for number in numbers:
-        for board in boards:
+        for i, board in enumerate(boards):
             board.draw(number)
-            if board.is_win():
+            if board.is_win() and i not in won:
                 naive_score = board.score()
-                return naive_score * number
-    raise ValueError("No board won the game")
+                scores.append(naive_score * number)
+                won.add(i)
+    return scores[index]
