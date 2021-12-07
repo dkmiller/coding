@@ -3,7 +3,8 @@ from common import lines_file_near
 from pytest import mark
 
 
-@mark.parametrize("file,expected", [("example.txt", 5), ("input.txt", 5)])
+# , ("input.txt", 5698)
+@mark.parametrize("file,expected", [("example.txt", 12), ("input.txt", 15463)])
 def test_winning_score(file, expected):
     lines = []
     for unparsed_line in lines_file_near(num_points_two_lines_overlap, file):

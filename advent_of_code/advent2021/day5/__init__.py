@@ -22,7 +22,7 @@ class Point:
 @dataclass
 class Line:
     """
-    Lines must be horizontal or vertical.
+    Lines must be horizontal, vertical, or diagonal.
     """
 
     source: Point
@@ -30,25 +30,37 @@ class Line:
 
     # https://stackoverflow.com/a/51248309
     def __post_init__(self):
-        assert self.source.x == self.target.x or self.source.y == self.target.y
+        assert (
+            self.source.x == self.target.x
+            or self.source.y == self.target.y
+            or abs(self.target.x - self.source.x) == abs(self.target.y - self.source.y)
+        )
 
     @staticmethod
     def _range(start: int, finish: int) -> Iterable[int]:
         """
         Inclusive
         """
-        return range(min(start, finish), max(start, finish) + 1)
+        delta = abs(finish - start)
+        sign = 1 if finish >= start else -1
+        for abs_delta in range(delta + 1):
+            yield start + sign * abs_delta
 
     def coverage(self) -> Iterable[Point]:
         """
         Whether or not `point` is covered by the line represented by `self`.
         """
-        if self.source.x != self.target.x:
-            for x in Line._range(self.source.x, self.target.x):
+        xs = Line._range(self.source.x, self.target.x)
+        ys = Line._range(self.source.y, self.target.y)
+        if self.source.y == self.target.y:
+            for x in xs:
                 yield Point(x, self.source.y)
-        else:
-            for y in Line._range(self.source.y, self.target.y):
+        elif self.source.x == self.target.x:
+            for y in ys:
                 yield Point(self.source.x, y)
+        else:
+            for x, y in zip(xs, ys):
+                yield Point(x, y)
 
     @staticmethod
     def parse(line: str) -> Line:
