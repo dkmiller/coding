@@ -3,7 +3,6 @@ from common import lines_file_near
 from pytest import mark
 
 
-# , ("input.txt", 5698)
 @mark.parametrize("file,expected", [("example.txt", 12), ("input.txt", 15463)])
 def test_winning_score(file, expected):
     lines = []
